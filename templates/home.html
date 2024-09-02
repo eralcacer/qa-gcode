@@ -1,0 +1,115 @@
+{% extends "base.html" %} {% block title %}Machine Configuration{% endblock %}
+{% block header %}Machine Configuration{% endblock %} {% block content %}
+<form method="POST">
+  <div class="form-group">
+    <label for="xl">Machine Dimension X lower limit:</label>
+    <input
+      type="number"
+      name="xl"
+      step="0.01"
+      class="form-control"
+      oninput="validity.valid||(value='');"
+    />
+  </div>
+  <div class="form-group">
+    <label for="xu">Machine Dimension X upper limit:</label>
+    <input
+      type="number"
+      name="xu"
+      step="0.01"
+      class="form-control"
+      oninput="validity.valid||(value='');"
+    />
+  </div>
+  <div class="form-group">
+    <label for="yl">Machine Dimension Y lower limit:</label>
+    <input
+      type="number"
+      name="yl"
+      step="0.01"
+      class="form-control"
+      oninput="validity.valid||(value='');"
+    />
+  </div>
+  <div class="form-group">
+    <label for="yu">Machine Dimension Y upper limit:</label>
+    <input
+      type="number"
+      name="yu"
+      step="0.01"
+      class="form-control"
+      oninput="validity.valid||(value='');"
+    />
+  </div>
+  <div class="form-group">
+    <label for="zl">Machine Dimension Z lower limit:</label>
+    <input
+      type="number"
+      name="zl"
+      step="0.01"
+      class="form-control"
+      oninput="validity.valid||(value='');"
+    />
+  </div>
+  <div class="form-group">
+    <label for="zu">Machine Dimension Z upper limit:</label>
+    <input
+      type="number"
+      name="zu"
+      step="0.01"
+      class="form-control"
+      oninput="validity.valid||(value='');"
+    />
+  </div>
+  <div class="form-group">
+    <label for="tools">Number of Tools:</label>
+    <input
+      type="number"
+      name="tools"
+      step="0.01"
+      class="form-control"
+      oninput="validity.valid||(value='');"
+    />
+  </div>
+  <div class="form-group">
+    <label for="max_speed">Max Machine Speed:</label>
+    <input
+      type="number"
+      name="max_speed"
+      step="0.01"
+      class="form-control"
+      oninput="validity.valid||(value='');"
+    />
+  </div>
+  <div class="form-group">
+    <label for="feed_rate">Max feed rate:</label>
+    <input
+      type="number"
+      name="feed_rate"
+      step="0.01"
+      class="form-control"
+      oninput="validity.valid||(value='');"
+    />
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+<style>
+  .form-group {
+    margin-bottom: 1rem;
+  }
+
+  .form-control {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 0.25rem;
+  }
+
+  .btn {
+    background-color: #007bff;
+    color: white;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+  }
+</style>
+{% endblock %}

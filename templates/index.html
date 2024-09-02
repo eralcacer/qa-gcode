@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Input and Scrollable Data Display</title>
+    <style>
+      /* Define a fixed height and enable scrolling for the data display */
+      .data-display {
+        max-height: 300px;
+        overflow-y: scroll;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Input Text:</h1>
+    <form method="POST">
+      <input type="text" name="input_line" />
+      <input type="submit" value="Add Line" />
+    </form>
+
+    <h1>Data Display:</h1>
+    <div class="data-display">
+      <ul>
+        {% for line in data_lines %}
+        <li>{{ line }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </body>
+</html>

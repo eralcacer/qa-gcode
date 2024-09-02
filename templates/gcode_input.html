@@ -1,0 +1,71 @@
+{% extends "base.html" %} {% block title %}G-code Input{% endblock %} {% block
+header %}G-code Input{% endblock %} {% block content %}
+
+<div class="container">
+  {% if (uploaded == None or uploaded == False) %}
+  <div class="upload-box">
+    <form method="POST" enctype="multipart/form-data" class="file-upload-form">
+      <div id="dropArea" class="drop-area">
+        <p class="drop-text">Drag and drop a file here or</p>
+        <label for="fileInput" class="file-label">Click to select a file</label>
+        <input
+          type="file"
+          name="gcode_line"
+          id="fileInput"
+          class="file-input"
+        />
+      </div>
+      <p class="selected-file">
+        Selected file: <span id="selectedFile">No file selected</span>
+      </p>
+      <input
+        type="submit"
+        value="Submit"
+        id="submitButton"
+        class="submit-button"
+      />
+    </form>
+  </div>
+  {% endif %}
+</div>
+
+<div class="file-content">
+  <h3>File Content</h3>
+  <table id="example" class="table table-striped" style="width: 100%">
+    <tbody>
+      {% for row in rows %} {% if 'Line' in row %}
+      <tr>
+        <td
+          colspan="7"
+          class="bg-info"
+          style="color: white; font-weight: bolder"
+        >
+          {{ row }}
+        </td>
+      </tr>
+      <tr>
+        {% for column in columns %}
+        <th>{{ column }}</th>
+        {% endfor %}
+      </tr>
+      {% else %}
+      <tr>
+        {% for cell in row %}
+        <td>{{ cell }}</td>
+        {% endfor %}
+      </tr>
+      {% endif %} {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+<form method="POST" class="reset-form" action="{{ url_for('reset_file') }}">
+  <button type="submit" class="reset-button">Reset File</button>
+</form>
+
+<!--<form method="POST">
+    <button type="submit" class="validate-button">Validate</button>
+</form>-->
+{% if error %}
+<h4 style="color: red">{{error}}</h4>
+{% endif %} {% endblock %}
